@@ -3,10 +3,13 @@ import jwt from 'jsonwebtoken'
 import { UserRepository } from '../repository/user.repository'
 
 export class UserService {
+  constructor() {
+    this.repository = new UserRepository()
+  }
+
   authenticate ({ username, password }) {
     return new Promise((resolve, reject) => {
-      const repository = new UserRepository()
-      repository.getLogin(username, password).then((user) => {
+      this.repository.getLogin(username, password).then((user) => {
         const obj = {
           user: user.email,
           admin: user.admin
@@ -24,10 +27,9 @@ export class UserService {
 
   create ({ username, password, admin, site }) {
     return new Promise((resolve, reject) => {
-      const repository = new UserRepository()
-      repository.getUser(username).then((user) => {
+      this.repository.getUser(username).then((user) => {
         if (user == null) {
-          repository.createUser(username, password, admin, site).then((res) => {
+          this.repository.createUser(username, password, admin, site).then((res) => {
             return resolve({ message: 'user create' })
           }).catch((err) => {
             console.log('ERROR:', err)
@@ -45,8 +47,7 @@ export class UserService {
 
   getUsersSiteCity (codeCity, nameSite) {
     return new Promise((resolve, reject) => {
-      const repository = new UserRepository()
-      repository.getUserSiteCity(codeCity, nameSite).then((result) => {
+      this.repository.getUserSiteCity(codeCity, nameSite).then((result) => {
         return resolve({ users: result })
       }).catch(err => {
         console.log('ERROR:', err)

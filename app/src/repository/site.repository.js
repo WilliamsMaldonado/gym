@@ -1,10 +1,13 @@
 import { Connection } from '../config/connection'
 
 export class SiteRepository {
+  constructor() {
+    this.connection = new Connection()
+  }
+
   create (name, cityCode) {
     return new Promise((resolve, reject) => {
-      const connection = new Connection()
-      const conn = connection.getConnection()
+      const conn = this.connection.getConnection()
       conn.execute('INSERT INTO sites (name, city) VALUES (?, ?);', [name, cityCode], function (error, results, fields) {
         if (error) {
           console.log(error)
@@ -17,9 +20,8 @@ export class SiteRepository {
 
   get (name) {
     return new Promise((resolve, reject) => {
-      const connection = new Connection()
       console.log('GET SITE:', name)
-      const conn = connection.getConnection()
+      const conn = this.connection.getConnection()
       conn.execute('select * from sites where name = ?', [name], function (error, results, fields) {
         if (error) {
           console.log(error)

@@ -1,11 +1,14 @@
 import { SiteRepository } from '../repository/site.repository'
 export class SiteService {
+  constructor() {
+    this.repository = new SiteRepository()
+  }
+
   create ({ name, cityCode }) {
     return new Promise((resolve, reject) => {
-      const repository = new SiteRepository()
-      repository.get(name).then((site) => {
+      this.repository.get(name).then((site) => {
         if (site == null) {
-          repository.create(name, cityCode).then((res) => {
+          this.repository.create(name, cityCode).then((res) => {
             return resolve({ message: 'site create' })
           }).catch((err) => {
             console.log('ERROR:', err)

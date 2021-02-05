@@ -1,11 +1,14 @@
 import { CityRepository } from '../repository/city.repository'
 export class CityService {
+  constructor() {
+    this.repository = new CityRepository()
+  }
+
   create ({ name, code }) {
     return new Promise((resolve, reject) => {
-      const repository = new CityRepository()
-      repository.get(code).then((city) => {
+      this.repository.get(code).then((city) => {
         if (city == null) {
-          repository.create(name, code).then((res) => {
+          this.repository.create(name, code).then((res) => {
             return resolve({ message: 'city create' })
           }).catch((err) => {
             console.log('ERROR:', err)

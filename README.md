@@ -22,7 +22,7 @@ Necesitas tener instaldo en el computador
 
 ## Dependencias
 
-correr `npm install` para instalar las dependencicas del proyeccto
+correr `npm install` para instalar las dependencicas del proyecto dentro de la carpeta `app`
 * [express](https://github.com/expressjs/express)
 * [express-jwt](https://github.com/auth0/express-jwt)
 * [jsonwebtoken](https://github.com/auth0/node-jsonwebtoken)
@@ -38,12 +38,15 @@ correr `npm install` para instalar las dependencicas del proyeccto
 
 ## Correr pruebas unitarias
 
-correr `npm run test` para ejecutar las pruebas con [Jest](https://jestjs.io/).
-
-correr `npm run coverage` para ejecutar las pruebas con cobertura, la cobertura se encuentra en la carpeta `coverage/lcov-report/index.html`
+* `cd app`
+* `npm i`
+* correr `npm run test` para ejecutar las pruebas con [Jest](https://jestjs.io/).
+* correr `npm run coverage` para ejecutar las pruebas con cobertura, la cobertura se encuentra en la carpeta `coverage/lcov-report/index.html`
 
 ## Clean Code
 
+* `cd app`
+* `npm i`
 * para garantizar codigo limpio y organizado se incluye la libreria [eslint](https://eslint.org/docs/developer-guide/nodejs-api)
 * `npm run lint` para ver errores
 * `npm run lint:fix` para corregir algunos errores automaticamente
