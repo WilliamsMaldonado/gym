@@ -1,0 +1,16 @@
+version: '2'
+services:
+  security:
+    build: ./app
+    ports:
+     - "4000:4000"
+    depends_on:
+     - db
+    environment:
+     - DATABASE_HOST=db
+    volumes:
+     - ./app:/app/api
+  db:
+    build: ./database
+    ports:
+     - "3306:3306"

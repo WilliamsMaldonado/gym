@@ -1,0 +1,199 @@
+{
+	"info": {
+		"_postman_id": "e9b5b7a5-d1de-42c3-ba61-0a444f004da4",
+		"name": "gym",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost:4000/users/users-site-city/?codeCity=1&nameSite=SEDE 1 KENNEDY",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoid2lsbGlhbXNAdGVzdC5jb20iLCJhZG1pbiI6MSwiaWF0IjoxNjEyNDg3OTU3LCJleHAiOjE2MTI0OTE1NTd9.YH_qvgDjhmn5DuZyZz2Ei0Ida8TpgpwN4VNCaj8nO4E",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:4000/users/users-site-city/?codeCity=1&nameSite=SEDE 1 KENNEDY",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"users",
+						"users-site-city",
+						""
+					],
+					"query": [
+						{
+							"key": "codeCity",
+							"value": "1"
+						},
+						{
+							"key": "nameSite",
+							"value": "SEDE 1 KENNEDY"
+						}
+					]
+				},
+				"description": "Traer lista usuarios gym por sede y ciudad"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:4000/sites/create",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoid2lsbGlhbXNAdGVzdC5jb20iLCJhZG1pbiI6MSwiaWF0IjoxNjEyNDg1NTc5LCJleHAiOjE2MTI0ODkxNzl9.sadrUEvkK65iE9ZDHtOrTQ1Q_MANsoARc8Uqzu4yIy4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"NUEVA SEDE BOSA\",\r\n    \"cityCode\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/sites/create",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"sites",
+						"create"
+					]
+				},
+				"description": "Crear sede par una ciudad"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:4000/cities/create",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoid2lsbGlhbXNAdGVzdC5jb20iLCJhZG1pbiI6MSwiaWF0IjoxNjEyNDgzMjkwLCJleHAiOjE2MTI0ODY4OTB9.WnO6_3Jak-7qt3l_hxmN0wWTsnw6BRPqM5JezBAddsE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Medellin\",\r\n    \"code\": 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/cities/create",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"cities",
+						"create"
+					]
+				},
+				"description": "Crear ciudad"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:4000/users/create",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoid2lsbGlhbXNAdGVzdC5jb20iLCJhZG1pbiI6MSwiaWF0IjoxNjEyNDg1NTc5LCJleHAiOjE2MTI0ODkxNzl9.sadrUEvkK65iE9ZDHtOrTQ1Q_MANsoARc8Uqzu4yIy4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"user@test.com\",\r\n    \"password\": \"master\",\r\n    \"admin\": false,\r\n    \"site\": 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/users/create",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"users",
+						"create"
+					]
+				},
+				"description": "Crear usuario para una sede"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:4000/users/authenticate",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"williams@test.com\",\r\n    \"password\": \"master\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/users/authenticate",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"users",
+						"authenticate"
+					]
+				},
+				"description": "inicio de session envio de token"
+			},
+			"response": []
+		}
+	]
+}
